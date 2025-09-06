@@ -15,16 +15,23 @@ type geometry interface{
 
 type persegi struct {
 	sisi float64
+	soso int
 }
 
-/*persegi struct has luas method*/
-func (persegiA persegi) luas() float64 {
-	return math.Pow(persegiA.sisi, 2)
+/*
+persegi struct has luas method
+have luas() int
+want luas() float64
+cannot use persegiA.sisi (variable of type int) as float64 value in argument to math.Pow
+*/
+func (persegiA persegi) luas() int {
+	/*func Pow(a, b float64) float64*/
+	return int(math.Pow(persegiA.sisi, 2))
 }
 
 func main() {
 	var bangunDatar geometry
 	/*missing method luas*/
-	bangunDatar = persegi{10}
+	bangunDatar = persegi{10, 1}
 	fmt.Println(bangunDatar.luas())
 }
