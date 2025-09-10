@@ -1,16 +1,10 @@
 package main
-import "math" /*undefined math*/
+import "math"
 import "fmt"
 
 /*geometry interface has luas() function*/
 type geometry interface{
-	/*
-	func functionName(parameter1 type1, parameter2 type2) returnType {
-        function body
-        return value
-    }
-	*/
-	luas() float64
+	luas() int
 }
 
 type persegi struct {
@@ -20,9 +14,7 @@ type persegi struct {
 
 /*
 persegi struct has luas method
-have luas() int
-want luas() float64
-cannot use persegiA.sisi (variable of type int) as float64 value in argument to math.Pow
+int refer to interface, not struct
 */
 func (persegiA persegi) luas() int {
 	/*func Pow(a, b float64) float64*/
@@ -31,7 +23,6 @@ func (persegiA persegi) luas() int {
 
 func main() {
 	var bangunDatar geometry
-	/*missing method luas*/
 	bangunDatar = persegi{10, 1}
 	fmt.Println(bangunDatar.luas())
 }
